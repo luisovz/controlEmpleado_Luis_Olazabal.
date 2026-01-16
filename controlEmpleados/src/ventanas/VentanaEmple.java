@@ -14,7 +14,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import javax.swing.*;
-
+//cambio
 public class VentanaEmple extends JDialog implements ActionListener, ItemListener  {
 	
 private static final long serialVersionUID = 1L;
@@ -33,7 +33,7 @@ String [] nombredepart=new String[50];
 String nombredep;
 
 JLabel mensaje=new JLabel(" ----------------------------- ");
-JLabel titulo=new JLabel ("GESTIÓN DE EMPLEADOS. BD QLITE");
+JLabel titulo=new JLabel ("GESTIï¿½N DE EMPLEADOS. BD QLITE");
 
 JLabel lnum = new JLabel ("Numero empleado:");
 JLabel lnom = new JLabel ("Nombre:");
@@ -64,7 +64,7 @@ Color c; //para poner colores
 public VentanaEmple(JFrame f )
 { 	
     setModal(true);
-    setTitle("GESTIÓN DE EMPLEADOS. BD QLITE ejemplo");
+    setTitle("GESTIï¿½N DE EMPLEADOS. BD QLITE ejemplo");
     JPanel p0 = new JPanel();c = Color.CYAN;
 	p0.add(titulo);	p0.setBackground(c);	
 	JPanel p1 = new JPanel(); p1.setLayout (new FlowLayout());
@@ -104,7 +104,7 @@ public VentanaEmple(JFrame f )
 	p10.add(mensaje);
 	// para ver la ventana y colocar los controles verticalmente
 	setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS)); 
-	// añadir los panel al frame
+	// aï¿½adir los panel al frame
 	add(p0);add(p1);add(p2);add(p3);add(p4);
 	//add(p5);
 	add(p6);add(p7);add(p32);
@@ -133,7 +133,7 @@ public void actionPerformed(ActionEvent e)
 			emple=Integer.parseInt(num.getText());
 			grabar();
 			}catch ( NumberFormatException n) {
-				mensaje.setText("Número de empleado incorrecto: " +num.getText() ); 
+				mensaje.setText("Nï¿½mero de empleado incorrecto: " +num.getText() ); 
 			}
 		
 	    }
@@ -144,7 +144,7 @@ public void actionPerformed(ActionEvent e)
 			emple=Integer.parseInt(num.getText());
 			consultar(emple);
 			}catch ( NumberFormatException n) {
-				mensaje.setText("Número de empleado incorrecto: " +num.getText() ); 
+				mensaje.setText("Nï¿½mero de empleado incorrecto: " +num.getText() ); 
 			} catch (IOException ec) {
 				mensaje.setText("ERROR AL IR A CONSULTAR.." ); 
 				//ec.printStackTrace();
@@ -157,7 +157,7 @@ public void actionPerformed(ActionEvent e)
 		emple=Integer.parseInt(num.getText());
 		borrar(emple);
 		}catch ( NumberFormatException n) {
-			mensaje.setText("Número de empleado incorrecto: " +num.getText() ); 
+			mensaje.setText("Nï¿½mero de empleado incorrecto: " +num.getText() ); 
 		}
 	}
 	if (e.getSource() == modif) { //SE PULSA EL BOTON  modificar  	
@@ -166,7 +166,7 @@ public void actionPerformed(ActionEvent e)
 			emple=Integer.parseInt(num.getText());
 			modificar(emple);
 			}catch ( NumberFormatException n) {
-				mensaje.setText("Número de empleado incorrecto: " +num.getText() ); 
+				mensaje.setText("Nï¿½mero de empleado incorrecto: " +num.getText() ); 
 			}
 
 	 }
@@ -223,7 +223,7 @@ public  void verporconsola() throws IOException {
      System.out.println ("Estado:" + e.getSQLState());
      //e.printStackTrace();
  	 if (e.getErrorCode()==17002)
-        mensaje.setText("Error NO SE PUEDE ESTABLECER CONEXIÓN CON LA BD. Revisa la conexión.");   
+        mensaje.setText("Error NO SE PUEDE ESTABLECER CONEXIï¿½N CON LA BD. Revisa la conexiï¿½n.");   
 
      } 
 }// fin verporconsola
@@ -298,7 +298,7 @@ void consultar(int emple) throws IOException
 	     System.out.println ("Estado:" + e.getSQLState());
 	     //e.printStackTrace();
 	 	 if (e.getErrorCode()==17002)
-	         mensaje.setText("Error NO SE PUEDE ESTABLECER CONEXIÓN CON LA BD. Revisa la conexión.");   
+	         mensaje.setText("Error NO SE PUEDE ESTABLECER CONEXIï¿½N CON LA BD. Revisa la conexiï¿½n.");   
 
 	     }   
 	
@@ -335,11 +335,11 @@ try
    catch (SQLException e) {  System.out.println(" ERROR EN SENTENCIA SQL. Borrado ");
    System.out.println(" Mensaje: " + e.getMessage());
    System.out.println(" Estado: " + e.getSQLState());
-   System.out.println(" Código: " + e.getErrorCode());
+   System.out.println(" Cï¿½digo: " + e.getErrorCode());
    if (e.getErrorCode()==1400)
    	   mensaje.setText(" Se Intenta insertar NULL en columna NOT NULL.");   
 	if (e.getErrorCode()==17002)
-        mensaje.setText("Error NO SE PUEDE ESTABLECER CONEXIÓN CON LA BD. Revisa la conexión.");   
+        mensaje.setText("Error NO SE PUEDE ESTABLECER CONEXIï¿½N CON LA BD. Revisa la conexiï¿½n.");   
 
    }
     
@@ -361,11 +361,11 @@ void modificar(int emp)
 	Double SALARIO=null; //         sal NUMBER(6,2)  
 	Double COMISION=null; //       com    NUMBER(6,2)  
 	int DEPT_NO=0;  //  NOT NULL NUMBER(2)   
-	// Hacemos la conversión
+	// Hacemos la conversiï¿½n
 	try{
 		dire=Integer.parseInt(listadirec.getSelectedItem());
 		}catch ( NumberFormatException n) {
-			mensaje.setText("Número de director incorrecto: " + listadirec.getSelectedItem() ); 
+			mensaje.setText("Nï¿½mero de director incorrecto: " + listadirec.getSelectedItem() ); 
 			error=1;}
 	try{
 		SALARIO=Double.parseDouble(sal.getText());
@@ -386,7 +386,7 @@ void modificar(int emp)
 		try{
 			DEPT_NO=Integer.parseInt(listadepar.getSelectedItem());
 			}catch ( NumberFormatException n) {
-				mensaje.setText("Número de departamento incorrecto: " + listadepar.getSelectedItem() ); 
+				mensaje.setText("Nï¿½mero de departamento incorrecto: " + listadepar.getSelectedItem() ); 
 				error=1;}
 	if (error!=1)
 	{ // Actualizamos si los datos son correctos	
@@ -420,13 +420,13 @@ void modificar(int emp)
 	   catch (SQLException e) {  System.out.println("** ERROR EN SENTENCIA SQL. **");
 	   System.out.println(" Mensaje: " + e.getMessage());
 	   System.out.println(" Estado: " + e.getSQLState());
-	   System.out.println(" Código: " + e.getErrorCode());
+	   System.out.println(" Cï¿½digo: " + e.getErrorCode());
 	   if (e.getErrorCode()==1400)
 	   	   mensaje.setText("Se Intenta insertar NULL en columna NOT NULL.");  
 	   if (e.getErrorCode()==1861)
 	   	   mensaje.setText("Error en el formato de la fecha. Reg No Modificado.");   
 		if (e.getErrorCode()==17002)
-	         mensaje.setText("Error NO SE PUEDE ESTABLECER CONEXIÓN CON LA BD. Revisa la conexión.");   
+	         mensaje.setText("Error NO SE PUEDE ESTABLECER CONEXIï¿½N CON LA BD. Revisa la conexiï¿½n.");   
 
 	   }
 	} // fin if error!=1
@@ -453,11 +453,11 @@ void grabar()
 	Double COMISION=null; 
 	int DEPT_NO=0;   
 	Date FECHAAL = null;
-	// Hacemos la conversión
+	// Hacemos la conversiï¿½n
 	try{
 		dire=Integer.parseInt(listadirec.getSelectedItem());
 		}catch ( NumberFormatException n) {
-			mensaje.setText("Número de director incorrecto: " + listadirec.getSelectedItem() ); 
+			mensaje.setText("Nï¿½mero de director incorrecto: " + listadirec.getSelectedItem() ); 
 			error=1;}
 	try{
 		SALARIO=Double.parseDouble(sal.getText());
@@ -478,7 +478,7 @@ void grabar()
 		try{
 			DEPT_NO=Integer.parseInt(listadepar.getSelectedItem());
 			}catch ( NumberFormatException n) {
-				mensaje.setText("Número de departamento incorrecto: " + listadepar.getSelectedItem() ); 
+				mensaje.setText("Nï¿½mero de departamento incorrecto: " + listadepar.getSelectedItem() ); 
 				error=1;}
 					
 	if (error!=1)
@@ -511,13 +511,13 @@ void grabar()
 	   catch (SQLException e) {  System.out.println(" ERROR EN SENTENCIA SQL. GRABAR ");
 	   System.out.println(" Mensaje: " + e.getMessage());
 	   System.out.println(" Estado: " + e.getSQLState());
-	   System.out.println(" Código: " + e.getErrorCode());
+	   System.out.println(" Cï¿½digo: " + e.getErrorCode());
 	   if (e.getErrorCode()==1400)
 	   	   mensaje.setText("Se Intenta insertar NULL en columna NOT NULL.");  
 	   if (e.getErrorCode()==1861)
 	   	   mensaje.setText("Error en el formato de la fecha. Reg No Modificado.");   
 		if (e.getErrorCode()==17002)
-	         mensaje.setText("Error NO SE PUEDE ESTABLECER CONEXIÓN CON LA BD. Revisa la conexión.");   
+	         mensaje.setText("Error NO SE PUEDE ESTABLECER CONEXIï¿½N CON LA BD. Revisa la conexiï¿½n.");   
 
 	   }
 	} // fin if error!=1 
@@ -536,8 +536,8 @@ public void cargalistaBDdirec(Choice listadirec,JLabel nombredir, String[] nombr
 	int emp=0;
 	while (resul.next())
 	{
-	  listadirec.add(Integer.toString(resul.getInt(1))); // guardo núm de empleado
-	  // guardo el nombre en un array según la posición del elemento, la posición la dice emp 
+	  listadirec.add(Integer.toString(resul.getInt(1))); // guardo nï¿½m de empleado
+	  // guardo el nombre en un array segï¿½n la posiciï¿½n del elemento, la posiciï¿½n la dice emp 
 	  System.out.println ("indice emp:" +  emp + " director leido:" + resul.getInt(1));
 	  nombredirec[emp] = resul.getString(2).toString();
 	 // si el dato es nulo sale error java.lang.NullPointerException, por eso decode
@@ -556,9 +556,9 @@ public void cargalistaBDdirec(Choice listadirec,JLabel nombredir, String[] nombr
 		    System.out.println(" ERROR EN SENTENCIA SQL. ");
 			System.out.println(" Mensaje: " + e.getMessage());
 			System.out.println(" Estado: " + e.getSQLState());
-			System.out.println(" Código: " + e.getErrorCode());
+			System.out.println(" Cï¿½digo: " + e.getErrorCode());
 			if (e.getErrorCode()==17002)
-		         mensaje.setText("Error NO SE PUEDE ESTABLECER CONEXIÓN CON LA BD. Revisa la conexión.");   
+		         mensaje.setText("Error NO SE PUEDE ESTABLECER CONEXIï¿½N CON LA BD. Revisa la conexiï¿½n.");   
 
 
 		   } 
@@ -578,8 +578,8 @@ public void cargalistaBD(Choice lista, JLabel nomd, String[] nombredepart2) {
 		int dep=0;
 		while (resul.next())
 		{
-		   lista.add(Integer.toString(resul.getInt(1))); // guardo núm de depar en la lista
-		   // guardo el nombre en un array según la posición del elemento, la posición la dice dep 
+		   lista.add(Integer.toString(resul.getInt(1))); // guardo nï¿½m de depar en la lista
+		   // guardo el nombre en un array segï¿½n la posiciï¿½n del elemento, la posiciï¿½n la dice dep 
 		  nombredepart2[dep] = resul.getString(2).toString(); 
 		  dep=dep+1;
 		}
@@ -595,7 +595,7 @@ public void cargalistaBD(Choice lista, JLabel nomd, String[] nombredepart2) {
 			   System.out.println ("ERRROOORRRRR SQLException");
 		   //e.printStackTrace();
 	      if (e.getErrorCode()==17002)
-		        mensaje.setText("Error NO SE PUEDE ESTABLECER CONEXIÓN CON LA BD. Revisa la conexión.");   
+		        mensaje.setText("Error NO SE PUEDE ESTABLECER CONEXIï¿½N CON LA BD. Revisa la conexiï¿½n.");   
 } 
 			 
 	}// fin carga lista de departamentos
